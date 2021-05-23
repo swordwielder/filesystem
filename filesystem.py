@@ -1,6 +1,14 @@
 from arrays import DynamicArray
-from lilist import LinkedList
+# from lilist import LinkedList
 import sys
+from termcolor import colored
+
+
+class WrappedList:
+    def __init__(self, lst):
+         self._lst = lst
+    def __getitem__(self, item):
+        return self._lst[item]
 
 class Folder:
     def __init__(self, parent, name):
@@ -25,13 +33,11 @@ path = 'home'
 def touch(name):
     
     global cur
-    # print('the current file is')
-    # print(cur.file)
 
-    #just to inform the error, doesn't exists in file system.
+    #just to inform the error, doesn't exists in file
     if name in cur.file:
         # print(name)
-        return print(f"There is a file with the same name as {name}, overwritten")
+        return print(f"There is a file with the same name as '{name}', overwritting")
     cur.file.append(name)
     return ''
 
@@ -39,18 +45,12 @@ def touch(name):
 # Create a directory
 def mkdir(name):
     global cur, path
-    # print('the name is')
-    # print(name)
-    # print('the current file is')
-    # print(cur.folder)
-    # for i in cur.folder:
-    #     print('the i is')
-    #     print(i)
+    
     for i in cur.folder:
+        #Check if the name of directory already exists
         if name ==i.name:
             return print(f"mkdir: cannot create directory '{name}': File exists")
-    # if name in cur.folder:
-    #     return print("shit already exists")
+
     folder = Folder(parent=cur, name=name)
     cur.folder.append(folder)
     return ''
@@ -76,11 +76,12 @@ def ls():
     global cur
     for i in cur.file:
         print(i, end=' ')
+    
     for i in cur.folder:
-        print(i.name, end=' ')
+        print( colored(i.name,'blue'), end=' ' )
     print()
 
-
+#main method to run the program
 if __name__ == '__main__':
     while True:
         print(path, end=':$ ')

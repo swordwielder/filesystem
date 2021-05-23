@@ -11,17 +11,19 @@ This is a linux file system emulator created in python
 
 ## Requirements:
 
-* Python 3 installed
+* Python 3
+
+* `pip install -r requirements.txt`
 
 ## Supported Commands:
 
 * `ls` - List directories
 
-* `cd` - Change directories
+* `cd` - Change directories (ex: cd folder1)
 
-* `touch` - create file(s)
+* `touch` - create file(s) (ex: touch file1 file2 file3)
 
-* `mkdir` - create folder(s)
+* `mkdir` - create folder(s) (ex: mkdir folder1 folder2 folder3)
 
 * `exit` - exit the program
 

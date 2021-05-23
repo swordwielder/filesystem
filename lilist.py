@@ -44,6 +44,7 @@ class LinkedList:
 	def __init__(self):
 		self.head=None
 		self.tail=None
+		self.length=0
 
 	def append(self,x):
 		# create a new Element
@@ -56,6 +57,7 @@ class LinkedList:
 			# keep head the same
 			self.tail.next=e
 			self.tail=e
+		self.length+=1
 
 	def __str__(self):
 		s = ""
@@ -68,12 +70,33 @@ class LinkedList:
 		return s	
 
 	def __iter__(self):
-		return self
+		return (self.next.data for self.head in range(self.length))
 		
+llist = LinkedList()
+llist.append('a')
+llist.append('b')
+llist.append('c')
+llist.append('d')
+llist.append('e')
+llist.append('f')
+iterable_obj = list(llist)
+
+print(' the list')
+print(llist)
+print('the i')
+for i in iterable_obj:
+	print(i)
+	# print(iterable_obj[i])
+
+print('the items')
+while True:
+    try:
+        # Iterate by calling next
+        item = next(iterable_obj)
+        print(item)
+    except StopIteration:
+ 
+        # exception will happen when iteration will over
+        break
 
 
-# main
-# llist = LinkedList()
-# llist.append(5)
-# llist.append(2)
-# print (llist)

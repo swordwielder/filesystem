@@ -113,8 +113,13 @@ class DynamicArray(object):
         self.A = B # Call A the new bigger array
         self.capacity = new_cap # Reset the capacity
           
+    
     def make_array(self, new_cap):
         """
         Returns a new array with new_cap capacity
         """
         return (new_cap * ctypes.py_object)()
+
+
+    def __iter__(self):
+	    pass
