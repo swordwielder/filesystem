@@ -67,7 +67,7 @@ def ls():
 
 if __name__ == '__main__':
     while True:
-        print(path, end=': ')
+        print(path, end='$: ')
         command = input().split(' ')
         if command[0] == 'touch':
             for i in range(1,len(command)):

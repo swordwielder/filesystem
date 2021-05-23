@@ -11,21 +11,19 @@ This is a linux file system emulator created in python
 
 ## Requirements:
 
-* ```pip install -r requirements.txt```
-
 * Python 3 installed
 
 ## Supported Commands:
 
-* ls - List directories
+* `ls` - List directories
 
-* cd - Change directories
+* `cd` - Change directories
 
-* touch - create file(s)
+* `touch` - create file(s)
 
-* mkdir - create folder(s)
+* `mkdir` - create folder(s)
 
-* exit - exit the program
+* `exit` - exit the program
 
 ### Additional info
 
@@ -42,11 +40,6 @@ This is a linux file system emulator created in python
 ## Result:
 
 **You should see a copy of the command line**
-
-
-## Technology:
-
-* Python 3
 
 
 
