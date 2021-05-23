@@ -21,9 +21,9 @@ This is a linux file system emulator created in python
 
 * cd - Change directories
 
-* touch - create a file(s)
+* touch - create file(s)
 
-* mkdir - create a folder(s)
+* mkdir - create folder(s)
 
 * exit - exit the program
 
@@ -41,7 +41,7 @@ This is a linux file system emulator created in python
 
 ## Result:
 
-**You should a copy of the command line**
+**You should see a copy of the command line**
 
 
 ## Technology:
