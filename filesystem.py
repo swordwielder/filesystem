@@ -1,4 +1,5 @@
 from arrays import DynamicArray
+from lilist import LinkedList
 import sys
 
 class Folder:
@@ -20,27 +21,42 @@ root = Folder(parent=None, name='home')
 cur = root
 path = 'home'
 
+# Create a file
 def touch(name):
-    # Create a file
+    
     global cur
+    # print('the current file is')
+    # print(cur.file)
+
+    #just to inform the error, doesn't exists in file system.
     if name in cur.file:
-        return 'There is a file with the same name, the new file failed!'
+        # print(name)
+        return print(f"There is a file with the same name as {name}, overwritten")
     cur.file.append(name)
-    return
+    return ''
 
 
+# Create a directory
 def mkdir(name):
-    # Create a directory
     global cur, path
-    if name in cur.folder:
-        return f"mkdir: cannot create directory '{name}': File exists"
+    # print('the name is')
+    # print(name)
+    # print('the current file is')
+    # print(cur.folder)
+    # for i in cur.folder:
+    #     print('the i is')
+    #     print(i)
+    for i in cur.folder:
+        if name ==i.name:
+            return print(f"mkdir: cannot create directory '{name}': File exists")
+    # if name in cur.folder:
+    #     return print("shit already exists")
     folder = Folder(parent=cur, name=name)
     cur.folder.append(folder)
-    return 
+    return ''
 
-
+# Change the current directory
 def cd(name):
-    # Change the current directory
     global cur, path
     if name == '..':
         if cur.parent != None:
@@ -59,23 +75,22 @@ def cd(name):
 def ls():
     global cur
     for i in cur.file:
-        print(' ', i, end=' ')
+        print(i, end=' ')
     for i in cur.folder:
-        print(' ', i.name, end=' ')
+        print(i.name, end=' ')
     print()
 
 
 if __name__ == '__main__':
     while True:
-        print(path, end='$: ')
+        print(path, end=':$ ')
         command = input().split(' ')
         if command[0] == 'touch':
             for i in range(1,len(command)):
                 try:
-                    print(touch(command[i]))
+                    touch(command[i])
                 except:
                     print('Command error')
-
 
         elif command[0] == 'mkdir':
             for i in range(1, len(command)):
