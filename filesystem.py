@@ -1,5 +1,5 @@
-from arrays import DynamicArray
-# from lilist import LinkedList
+
+from lilist import LinkedList
 import sys
 from termcolor import colored
 
@@ -19,9 +19,9 @@ class Folder:
         self.parent = parent
         self.name = name
         # directory list
-        self.folder = []
+        self.folder = LinkedList()
         # document list
-        self.file = []
+        self.file = LinkedList()
 
 root = Folder(parent=None, name='home')
 cur = root
@@ -31,9 +31,11 @@ path = 'home'
 def touch(name):
     
     global cur
-
+    print('cur file')
+    print(cur.file)
+    curfile = cur.file.split()
     #just to inform the error, doesn't exists in file
-    if name in cur.file:
+    if name in curfile:
         # print(name)
         return print(f"touch: cannot create file '{name}': File exists")
     cur.file.append(name)
@@ -43,8 +45,10 @@ def touch(name):
 # Create a directory
 def mkdir(name):
     global cur, path
+
+    curfolder = cur.folder.split()
     
-    for i in cur.folder:
+    for i in curfolder:
         #Check if the name of directory already exists
         if name ==i.name:
             return print(f"mkdir: cannot create directory '{name}': File exists")
@@ -61,7 +65,8 @@ def cd(name):
             path = path[:(len(path)-len(cur.name))-1]
             cur = cur.parent
     else:
-        for i in cur.folder:
+        curfolder = cur.folder.split()
+        for i in curfolder:
             if i.name == name:
                 cur = i
                 path = path + '/' + name
@@ -72,10 +77,14 @@ def cd(name):
 # List all files and directories
 def ls():
     global cur
-    for i in cur.file:
+    print('cur file')
+    print(cur.file)
+    curfile = cur.file.split()
+    for i in curfile:
         print(i, end=' ')
     
-    for i in cur.folder:
+    curfolder = cur.folder.split()
+    for i in curfolder:
         print( colored(i.name,'blue'), end=' ' )
     print()
 
