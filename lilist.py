@@ -37,13 +37,13 @@ class LinkedList:
 		return (self.next.data for self.head in range(self.length))
 		
 llist = LinkedList()
-llist.append('a')
-llist.append('b')
-llist.append('c')
-llist.append('d')
-llist.append('e')
-llist.append('f')
-print(llist)
+# llist.append('a')
+# llist.append('b')
+# llist.append('c')
+# llist.append('d')
+# llist.append('e')
+# llist.append('f')
+# print(llist)
 
 
 # obj = iter(llist)
