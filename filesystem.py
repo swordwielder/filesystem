@@ -19,10 +19,8 @@ class Folder:
         self.parent = parent
         self.name = name
         # directory list
-        # self.folder = DynamicArray()
         self.folder = []
         # document list
-        # self.file = DynamicArray()
         self.file = []
 
 root = Folder(parent=None, name='home')
@@ -37,7 +35,7 @@ def touch(name):
     #just to inform the error, doesn't exists in file
     if name in cur.file:
         # print(name)
-        return print(f"There is a file with the same name as '{name}', overwritting")
+        return print(f"touch: cannot create file '{name}': File exists")
     cur.file.append(name)
     return ''
 
@@ -68,7 +66,7 @@ def cd(name):
                 cur = i
                 path = path + '/' + name
                 return
-        return print('Cannot find the specified folder!')
+        return print(f'bash: cd: {name}: No such file or directory')
 
 
 # List all files and directories
