@@ -1,4 +1,4 @@
-from arrays import DynamicArray
+# from arrays import DynamicArray
 # from lilist import LinkedList
 import sys
 from termcolor import colored
